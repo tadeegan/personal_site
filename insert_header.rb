@@ -1,7 +1,10 @@
 require 'yaml'
-files = YAML.load_file('pages.yml')["pages"]
-puts files.inspect
+pages = YAML.load_file('pages.yml')
+files = pages["pages"]
 header_txt = File.readlines("header.html")
+header_txt.each do |line|
+    line.gsub! "{source}", pages["site_root"]
+end
 files.each do |file|
     lines = File.readlines(file)
     in_header = false;
@@ -19,6 +22,7 @@ files.each do |file|
                 f.puts line
                 next;
             end
-            f.puts line unless in_header}
+            f.puts line unless in_header
+        }
     end
 end

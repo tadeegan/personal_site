@@ -5,3 +5,9 @@ pages:
   - resume/resume.html
   - portfolio/envmap.html
   - portfolio/xbox/xbox.html
+  - portfolio/flash/Detroit2030.html
+  - portfolio/flash/Hexagons.html
+  - portfolio/flash/schoolrun.html
+  - portfolio/flash/Orbitrix.html
+  - portfolio/dipole.html
+site_root: file:///Users/tdeegan/Documents/site/personal

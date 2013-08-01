@@ -1,23 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-  <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <head>
+    <title>Thomas Deegan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- Loading Flat UI -->
-  <link href="../css/flat-ui.css" rel="stylesheet">
-  <link href="../style.css" rel="stylesheet">
-  <script type="text/javascript" src="pdfjs/build/pdf.js"></script>
-
-  <script type="text/javascript">
-    PDFJS.workerSrc = 'pdfjs/build/pdf.js';
-  </script>
-  <script type="text/javascript" src="hello.js"></script>
-  <script src="../js/jquery-1.8.3.min.js"></script>
-
-</head>
-
-<body>
-  <!--HEADER_START-->
+    <link href="../../css/flat-ui.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <script src="../../js/jquery-1.8.3.min.js"></script>
+  </head>
+  <body>
+    <!--HEADER_START-->
     <script type="text/javascript" src="file:///Users/tdeegan/Documents/site/personal/js/move.js"></script>
     <script>
       $( document ).ready(function() {
@@ -35,7 +29,7 @@
             .set('margin-right', '0px')
             .ease('snap')
             .end();
-      });
+  });
 
       }
       function up () {
@@ -79,11 +73,21 @@
           
         </div>
     </div>
-  <!--HEADER_END-->
-  <div class="content">
-    <canvas id="the-canvas" style="border:1px solid black;"/>
-  </div>
-  
-</body>
+    <!--HEADER_END-->
+    <div class="content">
+	    <object type="application/x-shockwave-flash" data="FallUp.swf" 
+			id="applicationID" style="width:300px;height:500px; display: block; margin-right:auto; margin-left:auto;">
 
+			<param name="movie" value="FallUp.swf" />
+			<param name="wmode" value="transparent" /> <!-- Or opaque, etc. -->
+
+			<!-- ↓ Required paramter or not, depends on application -->
+			<param name="FlashVars" value="" />
+
+			<param name="quality" value="high" />
+			<param name="menu" value="false" />
+
+			</object>
+		</div>
+  </body>
 </html>

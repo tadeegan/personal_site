@@ -1,3 +1,4 @@
+    <script type="text/javascript" src="{source}/js/move.js"></script>
     <script>
       $( document ).ready(function() {
         $("#contact_btn").mouseenter(drop).mouseleave(up);
@@ -6,6 +7,16 @@
       var hover_drop_down_is_active = false;
       function drop () {
         $( "#dropdown" ).css( "display","block" );
+        move('#dropdown')
+          .set('margin-right', '-100px')
+          .duration(0)
+          .end(function(){
+            move('#dropdown')
+            .set('margin-right', '0px')
+            .ease('snap')
+            .end();
+      });
+
       }
       function up () {
         window.setTimeout(timeUp, 5);
@@ -20,7 +31,6 @@
         hover_drop_down_is_active = true;
       }
       function dropUp () {
-        console.log("ASDfasdfadfadfafsd");
         hover_drop_down_is_active = false;
         up();
       }
@@ -28,24 +38,24 @@
     </script>
     <div class="row header">
       <div class="col-lg-4 header-title">
-        <a class="nolinkstyle" href="file:///Users/tdeegan/Documents/site/personal/index.html">
+        <a class="nolinkstyle" href="{source}/index.html">
           <h2>THOMAS DEEGAN</h2>
         </a>
       </div>
       
-        <div class="col-lg-1 header_links no-padding">
+        <div class="col-4 col-sm-3 col-lg-1 header_links no-padding">
           <a href="#" id="contact_btn" class="custom_button btn btn-block">Contact</a>
           <ul id="dropdown" class="dropdown">
-            <li><a href="http://github.com/tadeegan"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Github-64.png" align="middle"></img></a></li>
-            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="file:///Users/tdeegan/Documents/site/personal/assets/LinkedIn-64.png" align="middle"></img></a></li>
-            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Mail-64.png" align="middle"></img></a></li>
+            <li><a href="http://github.com/tadeegan"><img src="{source}/assets/Github-64.png" align="middle"></img></a></li>
+            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="{source}/assets/LinkedIn-64.png" align="middle"></img></a></li>
+            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="{source}/assets/Mail-64.png" align="middle"></img></a></li>
           </ul> 
         </div>
-        <div class="col-lg-1 header_links no-padding">
-          <a href="file:///Users/tdeegan/Documents/site/personal/work.html" class="custom_button btn btn-block">Work</a>
+        <div class="col-4 col-sm-3 col-lg-1 header_links no-padding">
+          <a href="{source}/work.html" class="custom_button btn btn-block">Work</a>
         </div>
-        <div class="col-lg-1 header_links nav-collapse collapse no-padding">
-          <a href="file:///Users/tdeegan/Documents/site/personal/resume/resume.html" class="custom_button btn btn-block">Resume</a>
+        <div class="col-4 col-sm-3 col-lg-1 header_links nav-collapse collapse no-padding">
+          <a href="{source}/resume/resume.html" class="custom_button btn btn-block">Resume</a>
           
         </div>
     </div>

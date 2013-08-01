@@ -1,49 +1,94 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-		<title>../../../Documents and Settings/Thomas/Desktop/Detroit2030</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<style type="text/css" media="screen">
-		html, body { height:100%; background-color: #333333;}
-		body { margin:0; padding:0; overflow:hidden; }
-		#flashContent { width:100%; height:100%; }
-		</style>
-	</head>
-	<body>
-		<div id="flashContent">
-			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="600" height="500" id="../../../Documents and Settings/Thomas/Desktop/Detroit2030" align="middle">
-				<param name="movie" value="../../../../Documents and Settings/Thomas/Desktop/Detroit2030.swf" />
-				<param name="quality" value="high" />
-				<param name="bgcolor" value="#333333" />
-				<param name="play" value="true" />
-				<param name="loop" value="true" />
-				<param name="wmode" value="window" />
-				<param name="scale" value="showall" />
-				<param name="menu" value="true" />
-				<param name="devicefont" value="false" />
-				<param name="salign" value="" />
-				<param name="allowScriptAccess" value="sameDomain" />
-				<!--[if !IE]>-->
-				<object type="application/x-shockwave-flash" data="../../../../Documents and Settings/Thomas/Desktop/Detroit2030.swf" width="600" height="500">
-					<param name="movie" value="../../../../Documents and Settings/Thomas/Desktop/Detroit2030.swf" />
-					<param name="quality" value="high" />
-					<param name="bgcolor" value="#333333" />
-					<param name="play" value="true" />
-					<param name="loop" value="true" />
-					<param name="wmode" value="window" />
-					<param name="scale" value="showall" />
-					<param name="menu" value="true" />
-					<param name="devicefont" value="false" />
-					<param name="salign" value="" />
-					<param name="allowScriptAccess" value="sameDomain" />
-				<!--<![endif]-->
-					<a href="http://www.adobe.com/go/getflash">
-						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
-					</a>
-				<!--[if !IE]>-->
-				</object>
-				<!--<![endif]-->
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thomas Deegan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="../../css/flat-ui.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <script src="../../js/jquery-1.8.3.min.js"></script>
+  </head>
+  <body>
+    <!--HEADER_START-->
+    <script type="text/javascript" src="file:///Users/tdeegan/Documents/site/personal/js/move.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $("#contact_btn").mouseenter(drop).mouseleave(up);
+        $("#dropdown").mouseenter(dropDown).mouseleave(dropUp);
+      });
+      var hover_drop_down_is_active = false;
+      function drop () {
+        $( "#dropdown" ).css( "display","block" );
+        move('#dropdown')
+          .set('margin-right', '-100px')
+          .duration(0)
+          .end(function(){
+            move('#dropdown')
+            .set('margin-right', '0px')
+            .ease('snap')
+            .end();
+      });
+
+      }
+      function up () {
+        window.setTimeout(timeUp, 5);
+        
+      }
+      function timeUp () {
+        if(!hover_drop_down_is_active){
+          $( "#dropdown" ).css( "display","none" );
+        }
+      }
+      function dropDown () {
+        hover_drop_down_is_active = true;
+      }
+      function dropUp () {
+        hover_drop_down_is_active = false;
+        up();
+      }
+
+    </script>
+    <div class="row header">
+      <div class="col-lg-4 header-title">
+        <a class="nolinkstyle" href="file:///Users/tdeegan/Documents/site/personal/index.html">
+          <h2>THOMAS DEEGAN</h2>
+        </a>
+      </div>
+      
+        <div class="col-4 col-sm-3 col-lg-1 header_links no-padding">
+          <a href="#" id="contact_btn" class="custom_button btn btn-block">Contact</a>
+          <ul id="dropdown" class="dropdown">
+            <li><a href="http://github.com/tadeegan"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Github-64.png" align="middle"></img></a></li>
+            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="file:///Users/tdeegan/Documents/site/personal/assets/LinkedIn-64.png" align="middle"></img></a></li>
+            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Mail-64.png" align="middle"></img></a></li>
+          </ul> 
+        </div>
+        <div class="col-4 col-sm-3 col-lg-1 header_links no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/work.html" class="custom_button btn btn-block">Work</a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-1 header_links nav-collapse collapse no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/resume/resume.html" class="custom_button btn btn-block">Resume</a>
+          
+        </div>
+    </div>
+    <!--HEADER_END-->
+    <div class="content">
+	    <object type="application/x-shockwave-flash" data="http://chat.kongregate.com/gamez/0013/0473/live/Detroit2030.swf?kongregate_game_version=1322012348
+	" 
+			id="applicationID" style="width:600px;height:500px; display: block; margin-right:auto; margin-left:auto;">
+
+			<param name="movie" value="/dir/application.swf" />
+			<param name="wmode" value="transparent" /> <!-- Or opaque, etc. -->
+
+			<!-- ↓ Required paramter or not, depends on application -->
+			<param name="FlashVars" value="" />
+
+			<param name="quality" value="high" />
+			<param name="menu" value="false" />
+
 			</object>
 		</div>
-	</body>
+  </body>
 </html>
