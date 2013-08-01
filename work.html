@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thomas Deegan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/effeckt.autoprefixed.css">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+  </head>
+  <body>
+    <!--HEADER_START-->
+    <script>
+      $( document ).ready(function() {
+        $("#contact_btn").mouseenter(drop).mouseleave(up);
+        $("#dropdown").mouseenter(dropDown).mouseleave(dropUp);
+      });
+      var hover_drop_down_is_active = false;
+      function drop () {
+        $( "#dropdown" ).css( "display","block" );
+      }
+      function up () {
+        window.setTimeout(timeUp, 5);
+        
+      }
+      function timeUp () {
+        if(!hover_drop_down_is_active){
+          $( "#dropdown" ).css( "display","none" );
+        }
+      }
+      function dropDown () {
+        hover_drop_down_is_active = true;
+      }
+      function dropUp () {
+        console.log("ASDfasdfadfadfafsd");
+        hover_drop_down_is_active = false;
+        up();
+      }
+
+    </script>
+    <div class="row header">
+      <div class="col-lg-4 header-title">
+        <a class="nolinkstyle" href="file:///Users/tdeegan/Documents/site/personal/index.html">
+          <h2>THOMAS DEEGAN</h2>
+        </a>
+      </div>
+      
+        <div class="col-lg-1 header_links no-padding">
+          <a href="#" id="contact_btn" class="custom_button btn btn-block">Contact</a>
+          <ul id="dropdown" class="dropdown">
+            <li><a href="http://github.com/tadeegan"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Github-64.png" align="middle"></img></a></li>
+            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="file:///Users/tdeegan/Documents/site/personal/assets/LinkedIn-64.png" align="middle"></img></a></li>
+            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Mail-64.png" align="middle"></img></a></li>
+          </ul> 
+        </div>
+        <div class="col-lg-1 header_links no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/work.html" class="custom_button btn btn-block">Work</a>
+        </div>
+        <div class="col-lg-1 header_links nav-collapse collapse no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/resume/resume.html" class="custom_button btn btn-block">Resume</a>
+          
+        </div>
+    </div>
+    <!--HEADER_END-->
+    <div class="content">
+      <h2>My Work..</h2>
+      </br>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/banners/site.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2>This Site!</h2>
+                <h5>My first real jab at front end web design</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/churn.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="http://churnhub.heroku.com">ChurnHub</a></h2>
+                <h5>Analyze volitile code.</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/node_mesh.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/Mesh/index.html">Node Mesh</a></h2>
+                <h5>A simple JS particle simulation</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/teapot.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/envmap.html">WebGL</a></h2>
+                <h5>Environment Mapping</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/trivia-trimmed.png); background-size: cover;' class="work-elem"></div>
+            <figcaption >
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="http://www.phunware.com/solutions/trivia/">TCM Trivia </a></h2>
+                <h5>iOS app.</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/ruby_holes.gif); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="https://itunes.apple.com/us/app/slidester/id503409871?mt=8">Holes..</a></h2>
+                <h5>ruby puzzle solver</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/xbox.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/xbox/xbox.html">Room Hack</a></h2>
+                <h5>Dorm room pimp out.</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/ECE110.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/ece/ece110.html">ECE 110 Project</a></h2>
+                <h5>A school project.</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/banners/slidester.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="https://itunes.apple.com/us/app/slidester/id503409871?mt=8">Slidester</a></h2>
+                <h5>Lecture recording ios app</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/FallUp.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/escape.html">Lunar Escape</a></h2>
+                <h5>An Andriod app</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/Dipole.PNG); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/dipole.html">Dipole</a></h2>
+                <h5>Realistic electric field visual</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <h2>Flash..</h2>
+      <h5>The entire world of programming with introduced to me with Adobe's Flash<h5>
+      </br>
+
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/Orbitrix.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/flash/orbitrix.html">Orbitrix</a></h2>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/banners/FallUp.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/flash/fallup.html">FallUP</a></h2>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/Sketcher.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="http://www.kongregate.com/games/keithlemons/sketcher">Sketcher</a></h2>
+                <h5>Draw some cool shapes</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/banners/Schoolrun.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/flash/schoolrun.html">School Run</a></h2>
+                <h5>Guide the kids accross the busy road to school</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        
+      </div>
+
+
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/BabbleShooter.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/flash/bubbleshoot.html">Bubble Shooter</a></h2>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9 work-elem no-margin">
+            <div style='background:url(assets/banners/Detroit.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="http://churnhub.heroku.com">Detroit 2030</a></h2>
+                <h5>A Post-apocalyptic adventure</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <figure class="effeckt-caption effeckt-caption-9  work-elem no-margin">
+            <div style='background:url(assets/banners/hexsweeper.png); background-size: cover;' class="work-elem"></div>
+            <figcaption class="work-caption-fit">
+              <div class="effeckt-figcaption-wrap">
+                <h2><a href="portfolio/flash/hexsweeper.html">Hex Sweeper</a></h2>
+                <h5>Minesweeper with a twist</h5>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        
+      </div>
+    </div>
+      
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

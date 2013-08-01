@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thomas Deegan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+  </head>
+  <body>
+    <!--HEADER_START-->
+    <script>
+      $( document ).ready(function() {
+        $("#contact_btn").mouseenter(drop).mouseleave(up);
+        $("#dropdown").mouseenter(dropDown).mouseleave(dropUp);
+      });
+      var hover_drop_down_is_active = false;
+      function drop () {
+        $( "#dropdown" ).css( "display","block" );
+      }
+      function up () {
+        window.setTimeout(timeUp, 5);
+        
+      }
+      function timeUp () {
+        if(!hover_drop_down_is_active){
+          $( "#dropdown" ).css( "display","none" );
+        }
+      }
+      function dropDown () {
+        hover_drop_down_is_active = true;
+      }
+      function dropUp () {
+        console.log("ASDfasdfadfadfafsd");
+        hover_drop_down_is_active = false;
+        up();
+      }
+
+    </script>
+    <div class="row header">
+      <div class="col-lg-4 header-title">
+        <a class="nolinkstyle" href="file:///Users/tdeegan/Documents/site/personal/index.html">
+          <h2>THOMAS DEEGAN</h2>
+        </a>
+      </div>
+      
+        <div class="col-lg-1 header_links no-padding">
+          <a href="#" id="contact_btn" class="custom_button btn btn-block">Contact</a>
+          <ul id="dropdown" class="dropdown">
+            <li><a href="http://github.com/tadeegan"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Github-64.png" align="middle"></img></a></li>
+            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="file:///Users/tdeegan/Documents/site/personal/assets/LinkedIn-64.png" align="middle"></img></a></li>
+            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Mail-64.png" align="middle"></img></a></li>
+          </ul> 
+        </div>
+        <div class="col-lg-1 header_links no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/work.html" class="custom_button btn btn-block">Work</a>
+        </div>
+        <div class="col-lg-1 header_links nav-collapse collapse no-padding">
+          <a href="file:///Users/tdeegan/Documents/site/personal/resume/resume.html" class="custom_button btn btn-block">Resume</a>
+          
+        </div>
+    </div>
+    <!--HEADER_END-->
+    <div class="back">
+    </div>
+    <div class="stretchedToMargin">
+    <table style="height:100%"><tr><td class="center">
+    <div class="border" id="content_box">
+      <table>
+        <tr>
+          <td class="column">
+            <img src="me.jpg" id="prof">
+          </td>
+          <td class="column">
+            <p>
+            Hi there! Welome to my site. I am currently studying Computer Science at the University of Illinois in Urbana Champaign. I am intersted in computer graphics espcially on mobile and on the web.  In my spare time I play club water polo and demolish noobs on <a href="http://us.battle.net/sc2/en/">StarCraft</a>. Check out my recent projects below!
+            </p>
+            <div style="width:100%; margin: 10px auto; position:absolute; bottom: 0px;">
+              <a href="work.html" class="btn btn-large btn-block btn-info work_button no-border">My Work  </a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </td></tr></table>
+    </div>
+    
+      
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    
+  </body>
+</html>

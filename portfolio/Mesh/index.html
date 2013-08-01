@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body style="background-color:#CCCCCC">
+    <div>
+      <canvas id="myCanvas" width="578" height="200" style="background-color:#FFFFFF; position: absolute; z-index: 1;"></canvas>
+      <script src="Vector2.js"></script>
+      <script src="Node.js"></script>
+      <script src="Link.js"></script>
+      <div width="300" height="100"  style="position:absolute; z-index: 2; " >
+        <input type="checkbox" id="termsCheckbox">Gravity
+      </div>
+    </div>
+    <script>
+      var gravity_checkbox=document.getElementById('termsCheckbox');
+      var canvas = document.getElementById('myCanvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var context = canvas.getContext('2d');
+
+      var FPS = 50;
+
+      var Nodes = [];
+      var mouse_pos;
+
+      var run = function() {
+        context.clearRect (0,0,canvas.width,canvas.height);
+        if(selectedNode != null){
+          context.beginPath();
+          context.moveTo(selectedNode.getPos().x,selectedNode.getPos().y);
+          context.lineTo(mouse_pos.x,mouse_pos.y);
+          context.strokeStyle = '#FF0000';
+          context.stroke();
+          var force = new Vector2(mouse_pos.x - selectedNode.getPos().x, mouse_pos.y - selectedNode.getPos().y);
+          var scale = Math.pow(1.001, force.length()*.5)*.01;
+          force = force.scale(scale);
+          selectedNode.applyForce(force);
+        }
+        for(node in Nodes){
+          var gravity = gravity_checkbox.checked ? new Vector2(0,0.5) : new Vector2(0,0);
+          Nodes[node].applyForce(gravity);
+          Nodes[node].calculateForces();
+        }
+        
+        for(node in Nodes){
+          Nodes[node].move();
+        }
+        for(link in Link.getAll()){
+          Link.getAll()[link].display(context);
+        }
+        for(node in Nodes){
+          Nodes[node].display(context);
+        }
+        
+
+      };
+      intervalId = setInterval(run, 1000 / FPS);
+
+      var pos = new Vector2(20,30);
+      var nd = new Node(pos);
+      nd.setColor('#FF0000');
+      Nodes.push(nd);
+
+      var pos2 = new Vector2(50,100);
+      var nd2 = new Node(pos2);
+      nd2.setColor('#3fe400');
+      Nodes.push(nd2);
+
+      var selectedNode;
+      new Link(nd2, nd, 30);
+
+      canvas.addEventListener('mouseup', function(e) {
+        if(selectedNode != null){
+          var pos = new Vector2(e.pageX, e.pageY);
+          for(node in Nodes){
+            if(Vector2.sub(pos, Nodes[node].getPos()).length() < 10){
+              if(Nodes[node] == selectedNode){
+                selectedNode.setFixed(!selectedNode.getFixed());
+                selectedNode = null;
+                return;
+              }
+              new Link(selectedNode,Nodes[node], Vector2.sub(selectedNode.getPos(), Nodes[node].getPos()).scale(.8).length());
+              selectedNode = null;
+              return;
+            }
+          }
+          var nd = new Node(pos);
+          nd.setColor('#FF0000');
+          Nodes.push(nd);
+          new Link(nd,selectedNode, (new Vector2(selectedNode.getPos().x - nd.getPos().x , selectedNode.getPos().y - nd.getPos().y)).length());
+          selectedNode = null;
+        }
+      }, true);
+
+      canvas.addEventListener('mousedown', function(e) {
+        var pos = new Vector2(e.pageX, e.pageY);
+        selectedNode = null;
+        for(node in Nodes){
+          if(Vector2.sub(pos, Nodes[node].getPos()).length() < 10){
+            selectedNode = Nodes[node];
+            return;
+          }
+        }
+        var nd = new Node(pos);
+        nd.setColor('#'+Math.floor(Math.random()*16777215).toString(16));
+        var len1 = Vector2.sub(Nodes[Nodes.length-1].getPos(), nd.getPos()).length();
+        new Link(Nodes[Nodes.length-1], nd, Vector2.sub(Nodes[Nodes.length-1].getPos(), nd.getPos()).scale(.8).length());
+        new Link(Nodes[Nodes.length-2], nd, Vector2.sub(Nodes[Nodes.length-2].getPos(), nd.getPos()).scale(.8).length());
+        Nodes.push(nd);
+      }, true);
+
+      canvas.addEventListener('mousemove', function(e) {
+        mouse_pos = new Vector2(e.pageX, e.pageY);
+      }, true);
+      //clearInterval(Game._intervalId);
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+    </script>
+  </body>
+</html>

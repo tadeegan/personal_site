@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<style>
+    #galleria{ width: 100%; height: 600px; background: #000 }
+</style>
+<html>
+  <head>
+    <title>Thomas Deegan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="../../css/flat-ui.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <script src="../../js/jquery-1.8.3.min.js"></script>
+  </head>
+  <body>
+    <!--HEADER_START-->
+    <script>
+      $( document ).ready(function() {
+        $("#contact_btn").mouseenter(drop).mouseleave(up);
+        $("#dropdown").mouseenter(dropDown).mouseleave(dropUp);
+      });
+      var hover_drop_down_is_active = false;
+      function drop () {
+        $( "#dropdown" ).css( "display","block" );
+      }
+      function up () {
+        window.setTimeout(timeUp, 5);
+        
+      }
+      function timeUp () {
+        if(!hover_drop_down_is_active){
+          $( "#dropdown" ).css( "display","none" );
+        }
+      }
+      function dropDown () {
+        hover_drop_down_is_active = true;
+      }
+      function dropUp () {
+        console.log("ASDfasdfadfadfafsd");
+        hover_drop_down_is_active = false;
+        up();
+      }
+
+    </script>
+    <div class="header">
+      <div class="header-title span4">
+        <a class="nolinkstyle" href="file:///Users/tdeegan/Documents/site/personal/index.html">
+          <h2>THOMAS DEEGAN</h2>
+        </a>
+      </div>
+      <div class="btn-group span8 header_links">
+        <div class="span2 header_links">
+          <a href="#" id="contact_btn" class="custom_button btn btn-block">Contact</a>
+          <ul id="dropdown" class="dropdown">
+            <li><a href="http://github.com/tadeegan"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Github-64.png" align="middle"></img></a></li>
+            <li><a href="http://www.linkedin.com/pub/thomas-deegan/54/1a1/998"><img src="file:///Users/tdeegan/Documents/site/personal/assets/LinkedIn-64.png" align="middle"></img></a></li>
+            <li><a href="mailto:tadeegan@gmail.com" target="_top"><img src="file:///Users/tdeegan/Documents/site/personal/assets/Mail-64.png" align="middle"></img></a></li>
+          </ul> 
+        </div>
+        <div class="span2 header_links">
+          <a href="file:///Users/tdeegan/Documents/site/personal/work.html" class="custom_button btn btn-block">Work</a>
+        </div>
+        <div class="span2 header_links nav-collapse collapse">
+          <a href="file:///Users/tdeegan/Documents/site/personal/resume/resume.html" class="custom_button btn btn-block">Resume</a>
+          
+        </div>
+      </div>
+    </div>
+    <!--HEADER_END-->
+    
+  </body>
+</html>
