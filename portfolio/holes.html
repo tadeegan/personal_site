@@ -4,11 +4,11 @@
     <title>Thomas Deegan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- Loading Flat UI -->
-    <link href="../../css/flat-ui.css" rel="stylesheet">
-    <link href="../../style.css" rel="stylesheet">
-    <script src="../../js/jquery-1.8.3.min.js"></script>
+    <link href="../css/flat-ui.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <script src="../js/jquery-1.8.3.min.js"></script>
   </head>
   <body>
     <!--HEADER_START-->
@@ -75,7 +75,60 @@
     </div>
     <!--HEADER_END-->
     <div class="content">
-      <iframe src="dipole-canvas.html" style="background-color: grey; padding: 300px" scrolling="no">Could Not be loaded, sorry :( </iframe>
+      <h2>A brute force ruby solver:</h2>
+      <br>
+	    <img src="../assets/traingle.jpg" style="float: right; margin: 15px;" width="200px" height=auto></img> 
+       <p style="color: #DDD; text-align: left">I found this puzzle around the office and after earning idiot status a few times playing it I decided I would beat it the only way I could: with a computer.  The objective of the game is to hop the pegs over each other, checkers style, until there is only 1 remaining. Its harder than you think.
+       </p>
+      
+        <p style="color: #DDD; text-align: left">I went with a brute force method for solving this. Using recusion I try every possible combination of moves until one works. Here is a code snipped from the "play" method:
+        </p>
+        <pre style="float:none; background-color: black; color: white; border: none; width: fit;">
+def play
+  puts "num holes occupied this recursion:" + count_occupied_holes
+  return true if count_occupied_holes.to_i < 2
+  @holes.each_with_index {|hole, index|
+    if hole.occupied
+      6.times do |i|
+        ad_hole = self.holeInDirection(hole.pos[0],hole.pos[1],i)
+        next if ad_hole == nil || !ad_hole.occupied
+        over_hole = self.holeInDirection(ad_hole.pos[0],ad_hole.pos[1],i)
+        if (over_hole != nil && !over_hole.occupied)
+          make_move hole, i
+
+          puts "RECURSE"
+          return true if play
+          take_back_move over_hole, opp(i)
+        end
+      end
+    end
+  } 
+  return false
+end
+        </pre>
+        <br>
+        <p style="color: #DDD; text-align: left">Here is some sample output:
+        </p>
+        <pre style="float: none; background-color: black; color: white; border: none; width: auto;">
+9, 14
+0, 9
+7, 5
+5, 12
+13, 6
+1, 10
+3, 1
+8, 13
+12, 7
+14, 11
+11, 2
+1, 3
+4, 2
+      </pre>
+      <p style="color: #DDD; text-align: left">The holes follows this mapping:
+      </p>
+      <img src="photo.jpg" style="margin: 15px;" width="200px" height=auto></img>
+      <br>
+      <a href="holes.rb" target="_blank">Source!</a>
 		</div>
   </body>
 </html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+</br>
+<input id="range" type="range" min="2" max="10" value="4" />
+
+<button id"addOne" type="button" onclick="newParticle()" style="width:30px;height:30px">+</button>
+<button id"subOne" type="button" onclick="removeParticle()" style="width:30px;height:30px">-</button>
+<button id"subOne" type="button" onclick="toggleFade()" style="height:30px">Toggle Fade </button>
+<script type="text/javascript">
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var particles=new Array();
+var radius = 4;
+var fades = true;
+
+var rng = document.getElementById("range");
+
+rng.oninput = function () {
+    	ctx.clearRect(0, 0, c.width, c.height);
+	radius = this.value;
+	draw();
+}
+function toggleFade(){
+	fades = !fades;
+	draw();
+}
+function newParticle(){
+	addParticle(Math.random()*c.width, Math.random()*c.height, (Math.random()* 4 - 2));
+	draw();
+}
+function removeParticle(){
+	particles.pop();
+	draw();
+}
+function drawField(x,y){
+	var vx = 0;
+	var vy = 0;
+
+	for (i=0;i<particles.length;i++)
+	{
+		var distance = Math.sqrt(Math.pow((x - particles[i].x),2) + Math.pow((y - particles[i].y),2));
+		var pcharge = particles[i].charge;
+		var scaleX = (x - particles[i].x)/distance;
+		var scaleY = (y - particles[i].y)/distance;
+
+		vx += pcharge / Math.pow((distance),2) *scaleX;
+		vy += pcharge / Math.pow((distance),2) *scaleY;
+	}
+	
+	var magnitude = Math.sqrt(Math.pow((vx),2) + Math.pow((vy),2));
+	if(fades == true){
+		ctx.globalAlpha = magnitude*1000;
+	}
+	
+	ctx.beginPath()
+	ctx.strokeStyle="#FFFFFF";
+	ctx.moveTo(x + radius*vx/magnitude, y + radius*vy/magnitude);
+	ctx.lineTo(x - radius*vx/magnitude,y - radius*vy/magnitude);
+	ctx.lineWidth = 2;
+	ctx.stroke();
+
+	ctx.beginPath()
+	ctx.strokeStyle="#FF0000";
+	ctx.moveTo(x - radius*vx/magnitude,y - radius*vy/magnitude);
+	ctx.lineTo(x ,y);
+	ctx.lineWidth = 2;
+	ctx.stroke();
+	
+	ctx.globalAlpha = 1.0;
+}
+
+function Particle (x,y,charge) {
+    	this.charge = charge;
+	this.x = x;
+	this.y = y;
+    	this.getInfo = function() {
+        return 'hello';
+    };
+}
+function showValue(newValue)
+{
+	document.getElementById("range").innerHTML=newValue;
+}
+function addParticle(x,y,charge){
+var newParticle = new Particle(x,y,charge);
+particles.push(newParticle);
+}
+
+function init(){
+addParticle(100,200,-1);
+addParticle(200,60,2);
+addParticle(220,250, 1);
+addParticle(250,190, -5);
+draw();
+}
+
+function draw(){
+drawRadius = radius*1.5;
+ctx.fillStyle="#000000";
+ctx.fillRect(0,0,c.width,c.height);
+for (w=0;w<=(c.width /drawRadius);w++)
+{
+
+for (z=0;z<=(c.width /drawRadius);z++)
+{
+drawField( w*drawRadius, z*drawRadius);
+}
+
+}
+
+
+for (i=0;i<particles.length;i++)
+{
+
+if(particles[i].charge <= 0){
+ctx.fillStyle="#FF0000";
+}
+else{
+ctx.fillStyle="#0000FF";
+}
+ctx.beginPath();
+ctx.arc(particles[i].x,particles[i].y,15,0,Math.PI*2,true);
+ctx.closePath();
+ctx.fill();
+
+}
+}
+
+init();
+</script>
+
+</body>
+</html>
