@@ -9,7 +9,7 @@ pages:
   - portfolio/flash/Hexagons.html
   - portfolio/flash/schoolrun.html
   - portfolio/flash/Orbitrix.html
-  - portfolio/dipole.html
+  - portfolio/experiments/dipole.html
   - portfolio/holes.html
 
 site_root: file:///Users/tdeegan/Documents/site/personal

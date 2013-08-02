@@ -3,6 +3,21 @@
       $( document ).ready(function() {
         $("#contact_btn").mouseenter(drop).mouseleave(up);
         $("#dropdown").mouseenter(dropDown).mouseleave(dropUp);
+        var body = $('body')
+        var header = $('#header')
+        console.log(header);
+        $(window).scroll(function() {
+          
+          
+          if(body.scrollTop() > 75){
+            console.log("asdf");
+            header.animate({opacity: 0.8}, 400);
+          }
+          else{
+            console.log("fda");
+            header.stop(true, true).animate({opacity: 1.0}, 400);
+          }
+        });
       });
       var hover_drop_down_is_active = false;
       function drop () {
@@ -36,7 +51,7 @@
       }
 
     </script>
-    <div class="row header">
+    <div id="header" class="row header">
       <div class="col-lg-4 header-title">
         <a class="nolinkstyle" href="{source}/index.html">
           <h2>THOMAS DEEGAN</h2>
