@@ -7,7 +7,7 @@ border: 0;
 }
 div.header{
 	height: 75px;
-	background-color: #3498DB;
+	background: rgba(52, 152, 219, 1.0);
 	position: fixed;
 	width: 100%;
 	top: 0;
