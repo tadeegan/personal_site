@@ -10,7 +10,7 @@
 //
 // Fetch the PDF document from the URL using promises
 //
-PDFJS.getDocument('Resume(01-09-13).pdf').then(function(pdf) {
+PDFJS.getDocument('Resume(9-9-13).pdf').then(function(pdf) {
   // Using promise to fetch the page
   console.log('got here');
   pdf.getPage(1).then(function(page) {
